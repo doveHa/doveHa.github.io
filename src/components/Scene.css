@@ -1,10 +1,18 @@
-﻿.scene {
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow: hidden; /* 기본 스크롤 막고 휠로만 이동 */
+}
+
+.scene {
     height: 100vh;
+    width: 100vw;
     display: flex;
-    justify-content: center;   /* 수평 가운데 */
-    align-items: center;       /* 수직 가운데 */
+    justify-content: center;
+    align-items: center;
     scroll-snap-align: start;
-    background-color: #111;    /* 각 섹션 배경 (진한 색으로 구분) */
+    background-color: #111;
     color: white;
 }
 
@@ -15,7 +23,22 @@
     border-radius: 16px;
     background-color: #1e1e1e;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
-    border: 2px solid #333;
     text-align: center;
 }
- 
+
+button {
+    padding: 0.75rem 1.5rem;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4db8ff;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #1e90ff;
+    transform: scale(1.05);
+}

@@ -1,8 +1,9 @@
-﻿export default function HomeScene() {
+﻿export default function HomeScene({ onLogin }) {
     return (
-        <div>
-            <h1>Welcome to My Game World</h1>
-            <p>This is a universe where aliens and harpies coexist...</p>
-        </div>
+        <>
+            <h1>HomeScene</h1>
+            <p>지금 로그인하고 게임을 시작해보세요!</p>
+            <button onClick={onLogin}>로그인</button>
+        </>
     );
 }
