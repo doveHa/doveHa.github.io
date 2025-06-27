@@ -1,0 +1,20 @@
+﻿.scene {
+    height: 100vh;
+    display: flex;
+    justify-content: center;   /* 수평 가운데 */
+    align-items: center;       /* 수직 가운데 */
+    scroll-snap-align: start;
+    background-color: #111;    /* 각 섹션 배경 (진한 색으로 구분) */
+    color: white;
+}
+
+.scene-box {
+    width: 80%;
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 16px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+    border: 2px solid #333;
+    text-align: center;
+}
