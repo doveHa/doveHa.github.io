@@ -1,0 +1,19 @@
+﻿.node {
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.node:hover {
+    background-color: #8888ff22;
+}
+
+.node.selected {
+    background-color: #4444ff33; /* 선택된 노드 */
+}
+
+.node.related {
+    background-color: #ff444433; /* 관련 노드 */
+}
