@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import "./DetailPanel.css";
 
 function findNodeByName(node, name) {
     if (node.name === name) return node;
@@ -11,35 +12,26 @@ function findNodeByName(node, name) {
     return null;
 }
 
-export default function DetailPanel({ node, rootData, level = 0 }) {
-    if (!node) return <div>선택된 항목이 없습니다.</div>;
+export default function DetailPanel({ node, rootData }) {
+    if (!node) return <div className="detail-panel">선택된 항목이 없습니다.</div>;
 
-    // related를 배열로 안전하게 변환
-    const relatedNodes = node.related
-        ? Array.isArray(node.related) ? node.related : [node.related]
-        : [];
+    const relatedNodes = node.related ? (Array.isArray(node.related) ? node.related : [node.related]) : [];
 
     return (
-        <div style={{ marginBottom: "16px", position: "relative" }}>
-            <div style={{
-                padding: "12px",
-                border: "2px solid #888",
-                borderRadius: "8px",
-                backgroundColor: "#f9f9f9",
-            }}>
-                <h2 style={{ fontWeight: "bold", marginBottom: "6px" }}>{node.name}</h2>
-                {node.type && <p><strong>Type:</strong> {node.type}</p>}
+        <div className="detail-panel">
+            <div className="detail-card">
+                <h2>{node.name}</h2>
+                {node.type && <p><strong>{node.type}</strong></p>}
                 {node.description && <p>{node.description}</p>}
                 {node.function && <p><strong>Function:</strong> {node.function}</p>}
             </div>
 
-            {/* 관련 오브젝트 재귀 */}
             {relatedNodes.length > 0 && (
-                <div style={{ marginTop: "12px", paddingLeft: "16px", borderLeft: "2px dashed #888" }}>
+                <div className="related-container">
                     {relatedNodes.map((rName, idx) => {
                         const relatedNode = findNodeByName(rootData, rName);
                         if (!relatedNode) return null;
-                        return <DetailPanel key={idx} node={relatedNode} rootData={rootData} level={level + 1} />;
+                        return <DetailPanel key={idx} node={relatedNode} rootData={rootData} />;
                     })}
                 </div>
             )}

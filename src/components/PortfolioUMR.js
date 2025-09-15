@@ -12,7 +12,11 @@ export default function PortfolioUMR() {
     return (
         <div className="portfolio-container">
             <div className="panel left-panel">
-                <SceneImage hoveredNode={hoveredNode} />
+                <SceneImage
+                    hoveredNode={hoveredNode}
+                    selectedNode={selectedNode}
+                    rootData={homeScene}
+                />
             </div>
 
             <div className="panel middle-panel">
